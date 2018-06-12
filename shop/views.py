@@ -61,9 +61,8 @@ def reg(req):
 
 @login_required
 def viewcart(req):
-    a = Order.objects.get(user=req.user)
+    a = get_object_or_404(Order, user=req.user)
     tovars = a.tovars.all()
-    print(tovars)
     return render(req, "viewcart.html",{'item':tovars})
 
 
