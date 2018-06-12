@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css?family=Sunflower:300');
+
+body{
+    background-image: url(http://beloweb.ru/wp-content/uploads/2014/06/1234567125.jpg);
+}
+
+.dws {
+ position: absolute;
+ top: 30%;
+ left: 51%;
+ transform: translate(-50%, -50%);
+}
+.butt {
+ border: 3px solid #218294;
+ font-size: 30px;
+ color: #218294;
+ text-decoration: none;
+ text-transform: uppercase;
+ width: 250px;
+ height: 60px;
+ display: block;
+ text-align: center;
+ line-height: 60px;
+ font-family: Arial, sans-serif;
+ position: relative;
+ transition: .5s;
+ overflow: hidden;
+}
+.butt:hover {
+ color: rgb(233, 22, 22);
+}
+
+
+
+
+
+input[type="text"]{
+    border: 2.5px solid #fc0000; 
+    border-radius: 3px; 
+    background: #ffffff !important; 
+    outline: none; 
+    height: 60px; 
+    width: 300px; 
+    color: #fc0000; 
+    font-size: 11px; // Размер шрифта
+    font-family: Tahoma; 
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    font-size: 60px;
+    margin: 0 -7%;
+    margin-bottom: 50px;
+ }
+
+input[type="password"]{
+    border: 2.5px solid #fc0000; 
+    border-radius: 3px; 
+    background: #ffffff !important; 
+    outline: none; 
+    height: 60px; 
+    width: 300px; 
+    color: #fc0000; 
+    font-size: 11px; // Размер шрифта
+    font-family: Tahoma; 
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    font-size: 60px;
+    margin: 0 -7%;
+    margin-bottom: 10px;  
+    margin-top: 80px;
+}
+
+h2{
+    font-size:50px;
+    margin: 0 43%;
+    color: blue;
+}
+

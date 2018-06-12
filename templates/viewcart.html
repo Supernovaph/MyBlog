@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Моя корзина</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/cart.css"/> 
+</head>
+<body>
+    <h1>Мои товары</h1>
+    {% for tovar in item %}
+    <div class="info">
+        <p>Название: <span class="name">{{ tovar.name }}</span></p>
+        <p>Описание: <span class="name">{{ tovar.description }}</span></p>
+        <p>Цена: <span class="name">{{ tovar.price }}</span></p>
+        <img id="img" width="350px" src="{{ tovar.image_url|default_if_none:'#' }}" />
+    </div>
+    {% endfor %}
+</body>
+</html>

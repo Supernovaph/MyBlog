@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adminka</title>
+</head>
+<body>
+    <h1>Hey, odmen</h1>
+    
+    
+    <h3>Создать новый товар:</h3>
+    <form action="{% url 'create_product' %}" method="POST">
+        {% csrf_token %}
+        <span>Название:</span><input type="input" name="title"/>
+        <p>Описание:</p><textarea name="description"></textarea><br/>
+        <span>Цена:</span><input type="number" name="price"  step="any" value="0"/><br/>
+        <span>Количество:</span><input type="number" name="amount"/><br/>
+        <span>Ссылка на картинку:</span><input type="text" name="image"/><br/>
+        <input type="submit"/>
+    </form>
+    
+</body>
+</html>
