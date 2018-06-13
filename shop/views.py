@@ -47,7 +47,7 @@ def add_product(req):
     
     order.tovars.add(a)
     order.save()
-    return HttpResponse('Cool')
+    return HttpResponseRedirect('home')
 
 def reg(req):
     if 'login' in req.POST and 'password' in req.POST:
@@ -64,8 +64,18 @@ def viewcart(req):
     a = get_object_or_404(Order, user=req.user)
     tovars = a.tovars.all()
     return render(req, "viewcart.html",{'item':tovars})
+  
+@login_required
+def pay(req):
+    order = get_object_or_404(Order, user=req.user)
+    if not order.pay:
+       order.pay = True
+       order.save()
+    return render(req, "pay.html",{'pay':order})
 
 
- 
+        
+
+  
 
 
