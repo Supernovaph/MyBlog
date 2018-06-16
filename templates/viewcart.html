@@ -16,9 +16,9 @@
         <p>Цена: <span class="name">{{ tovar.price }}</span></p>
         <img id="img" width="350px" src="{{ tovar.image_url|default_if_none:'#' }}" />
     </div>
+    {% endfor %}
     <div id="pdiv">
         <a href="{% url 'pay' %}"><button id ="pay" name="button" >Оплатить</button></a>
     </div>
-    {% endfor %}
 </body>
 </html>

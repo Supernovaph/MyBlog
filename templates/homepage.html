@@ -6,6 +6,8 @@
     <title>Home</title>
     {% load staticfiles %}
     <link rel="stylesheet" href="/static/home.css"/>
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.js"></script> -->
+
 </head>
 <body>
     <h1 id="priv">Hey, {{username}}</h1>
@@ -15,14 +17,18 @@
         <p>Описание товара: {{product.description}}</p>
         <i>Цена товара: {{product.price}} руб.</i>
         <img width="350px" src="{{ product.image_url|default_if_none:'#' }}" />
-        <form method="POST" action="{%url 'buy'%}">
+        <form id="form" method="POST" action="{%url 'buy'%}">
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ product.id }}">
-            <button id="button" value="cart">Добавить в корзину</button>        
-        </form>    
-        
+            <button class="submitbutton" value="cart">Добавить в корзину</button>        
+        </form>
     </div>
     {% endfor %}
     
+    
+    {% block extrahead %}
+    <!-- <script src="/static/main.js"></script> -->
+    {% endblock extrahead %}
 </body>
 </html>
+

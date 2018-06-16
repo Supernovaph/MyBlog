@@ -26,7 +26,7 @@ body{
     
 }
 
-#button{
+.submitbutton{
     background-color: aqua;
     color: black;
     font-size: 20px;
@@ -41,7 +41,7 @@ body{
 
 }
 
-#button:hover{
+.submitbutton:hover{
     cursor: pointer;
     color: red;
 

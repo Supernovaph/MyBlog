@@ -37,14 +37,10 @@ def create_product(req):
 @login_required
 def add_product(req):
     a = get_object_or_404(Product, pk = req.POST['id'])
-    orders = list(Order.objects.filter(user=req.user))
-    if orders:
-        order = orders[0] 
-    else:
-        order = Order(user=req.user)
-        order.save()
-    
-    
+    try:
+        order = Order.objects.get(user=req.user, pay = False)
+    except:
+        order = Order.objects.create(user=req.user) 
     order.tovars.add(a)
     order.save()
     return HttpResponseRedirect('home')
@@ -61,13 +57,16 @@ def reg(req):
 
 @login_required
 def viewcart(req):
-    a = get_object_or_404(Order, user=req.user)
-    tovars = a.tovars.all()
+    try:
+        a = Order.objects.get(user=req.user, pay = False)
+    except:
+        a = Order.objects.create(user=req.user) 
+    tovars = a.tovars.all()       
     return render(req, "viewcart.html",{'item':tovars})
   
 @login_required
 def pay(req):
-    order = get_object_or_404(Order, user=req.user)
+    order = Order.objects.get(user=req.user, pay = False)
     if not order.pay:
        order.pay = True
        order.save()
